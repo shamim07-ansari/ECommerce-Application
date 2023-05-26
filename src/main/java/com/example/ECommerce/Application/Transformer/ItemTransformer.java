@@ -6,7 +6,7 @@ import com.example.ECommerce.Application.Model.Item;
 import com.example.ECommerce.Application.Model.Product;
 
 public class ItemTransformer {
-    public static Item itemRequestDtoToItem(Product product, Customer customer, int requiredQuantity) {
+    public static Item itemRequestDtoToItem(int requiredQuantity) {
         return Item.builder()
                 .requiredQuantity(requiredQuantity)
                 .build();

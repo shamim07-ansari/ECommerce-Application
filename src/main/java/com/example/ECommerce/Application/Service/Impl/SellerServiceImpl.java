@@ -11,16 +11,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SellerServiceImpl implements SellerService {
-
     @Autowired
     SellerRepository sellerRepository;
     @Override
     public SellerResponseDto addSeller(SellerRequestDto sellerRequestDto) {
 
+        // Request Dto -> Entity
         Seller seller = SellerTransformer.sellerRequestDtoSeller(sellerRequestDto);
 
+        // save seller
         Seller savedSeller = sellerRepository.save(seller);
 
+        // Entity -> Response Dto
         return SellerTransformer.sellerToSellerResponseDto(savedSeller);
     }
 }

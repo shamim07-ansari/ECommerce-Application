@@ -54,7 +54,7 @@ public class ItemServiceImpl implements ItemService {
         }
 
         // Request Dto -> Entity
-        Item item = ItemTransformer.itemRequestDtoToItem(product, customer, itemRequestDto.getRequiredQuantity());
+        Item item = ItemTransformer.itemRequestDtoToItem(itemRequestDto.getRequiredQuantity());
 
         return item;
     }

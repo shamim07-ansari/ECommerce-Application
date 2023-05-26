@@ -24,6 +24,8 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository productRepository;
     @Override
     public ProductResponseDto addProduct(ProductRequestDto productRequestDto) throws SellerNotFoundException {
+
+        // checking seller
         Seller seller = sellerRepository.findByEmailId(productRequestDto.getSellerEmailId());
         if(seller == null) {
             throw new SellerNotFoundException("EmailId is not registered !!");

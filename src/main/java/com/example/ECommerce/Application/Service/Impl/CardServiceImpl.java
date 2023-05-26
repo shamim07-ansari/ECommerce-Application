@@ -21,10 +21,13 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public CardResponseDto addCard(CardRequestDto cardRequestDto) throws CustomerNotFoundException {
+
+        // checking customer
         Customer customer = customerRepository.findByEmailId(cardRequestDto.getEmailId());
         if(customer == null) {
             throw new CustomerNotFoundException("Invalid email id !!");
         }
+
         // Request Dto -> Entity
         Card card = CardTransformer.cardRequestDtoToCard(cardRequestDto);
         card.setCustomer(customer);
